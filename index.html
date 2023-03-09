@@ -56,19 +56,19 @@
                 <a-image
                     src="assets/test2.png"
                     look-at="[gps-camera]"
-                    scale="6 10 1"
+                    scale="5 7 1"
                     gps-entity-place="latitude:24.34030571096727; longitude:124.15823568896843;"
                 ></a-image>
 
                 <a-image
                     src="assets/test1.png"
                     look-at="[gps-camera]"
-                    scale="6 10 1"
+                    scale="5 7 1"
                     gps-entity-place="latitude:24.340575385500195; longitude:124.15827599413532;"
                 ></a-image>
 
                 
-              <a-camera gps-camera="minDistance:0; maxDistance:20" rotation-reader> </a-camera>
+              <a-camera gps-camera="gpsMinDistance:10; minDistance:0; maxDistance:20" rotation-reader> </a-camera>
         </a-scene>
 
     </body>
