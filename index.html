@@ -154,59 +154,11 @@
             scale="5 5 1"
             gps-entity-place="latitude:24.339893861709967; longitude:124.15856437963475;"
             ></a-image>
-        
-            <a-light
-            id="directionLight"
-            type="directional"
-            color="#FFF"
-            intensity="0"
-            position="-1 1 2">
-            </a-light>
-            
-            <a-light
-            id="ambientLight"
-            type="ambient"
-            intensity="0"
-            color="#FFF">
-            </a-light>
+                
                 
                 
             <a-camera gps-camera="gpsMinDistance:5; maxDistance:100;" rotation-reader> </a-camera>
         </a-scene>
-
-         <script>
-      window.addEventListener('load', function () {
-        const el = document.querySelector('[gps-entity-place]');
-        const distanceMsg = document.getElementById('distance');
-        const message = document.getElementById('message');
-        const directionLight = document.getElementById('directionLight');
-        const ambientLight = document.getElementById('ambientLight');
-        el.addEventListener('gps-entity-place-update-positon', (event) => {
-          distanceMsg.textContent = `あと${event.detail.distance}m`;
-          if(event.detail.distance <= 5) {
-            // 5m以下で明るくする、メッセージ表示、距離非表示
-            directionLight.setAttribute('intensity',1);
-            ambientLight.setAttribute('intensity',1);
-            distanceMsg.style.display = 'none';
-            message.style.display = 'block';
-
-          } else if(event.detail.distance <= 20) {
-            // 20m以下で近づくほど明るくする、メッセージ非表示、距離表示
-            directionLight.setAttribute('intensity',1 - event.detail.distance / 50);
-            ambientLight.setAttribute('intensity',1 - event.detail.distance / 50);
-            distanceMsg.style.display = 'block';
-            message.style.display = 'none';
-
-          } else {
-            // 20mより離れると、明るさ0、メッセージ非表示、距離表示
-            directionLight.setAttribute('intensity',0);
-            ambientLight.setAttribute('intensity',0);
-            distanceMsg.style.display = 'block';
-            message.style.display = 'none';
-          }
-        });
-      });
-    </script>
 
     </body>
 </html>
